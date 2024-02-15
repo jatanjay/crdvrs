@@ -10,7 +10,7 @@ I, along with my team, developed this machine as my Senior Design Project at UMa
 
 <figure align="center">
     <video width="640" height="360" controls>
-        <source src="https://github.com/jatanjay/crdvrs/blob/main/files/card_verse_work.mov" type="video/mp4">
+        <source src="assets/card_verse_work.mov" type="video/mp4">
     </video>
     <figcaption>Day 280 of 305</figcaption>
 </figure>
