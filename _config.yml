@@ -1,7 +1,7 @@
 # Site settings
 title: CardVerse by Jatan Pandya
 tag_text: CardVerse
-description: CardVerse: A machine that authenticates, grades, and sorts Magic: The Gathering Card.
+description: A machine that authenticates, grades, and sorts Magic: The Gathering Card.
 # baseurl: "/blog" # the subpath of your site, e.g. /blog
 # url: "https://example.com" # the base hostname & protocol for your site, e.g. http://example.com
 
