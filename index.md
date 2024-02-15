@@ -2,7 +2,9 @@
 layout: default
 ---
 
-![Banner](assets/logo.jpg)
+<div style="text-align: center;">
+    ![Banner](assets/logo.jpg)
+</div>
 
 **[CardVerse](http://jatanjay.github.io/cardverse)** Is a machine that authenticates, grades, and sorts Magic: The Gathering Card.
 
