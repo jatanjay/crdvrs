@@ -11,30 +11,136 @@
 </head>
 <body>
   <div class="container">
-    <p><img src="assets/logo.jpg" alt="Banner" /></p>
+    <p align="center">
+  <img src="assets/logo.jpg" alt="Banner" />
+</p>
 
-<p><strong><a href="http://jatanjay.github.io/cardverse">CardVerse</a></strong> Is a machine that authenticates, grades, and sorts Magic: The Gathering Card.</p>
-
-<p>I, along with my team, developed this machine as my Senior Design Project at UMass Amherst</p>
-
-<figure align="center">
-    <video width="640" height="360" controls="">
-        <source src="https://github.com/jatanjay/crdvrs/blob/main/files/card_verse_work.mov" type="video/mp4" />
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <video controls="" autoplay="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <source src="assets/card_verse_work..mp4" type="video/mp4" />
     </video>
-    <figcaption>Day 280 of 305</figcaption>
-</figure>
+</div>
+<figcaption style="text-align: center;">Day 280 of 305</figcaption>
 
-<h2 id="fast-facts">Fast Facts</h2>
+<h2 id="whats-cardverse">What’s CardVerse?</h2>
+<p>CardVerse is a machine capable of authenticating, grading, and sorting Magic: The Gathering cards with a throughput of 2 cards per minute with a total capacity of 1000 cards.</p>
 
-<h3 id="impact--media">Impact &amp; Media</h3>
+<p>I, along with my team, developed this project as my ECE Senior Design Project.</p>
 
-<h2 id="architecture">Architecture</h2>
+<h2 id="impact">Impact</h2>
+<p>We won a total of $7000 prize money at UMass’s ‘22-‘23 Berthiaume Innovation Challenge</p>
 
-<h3 id="software-engineering">Software Engineering</h3>
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>UMass Business Plan Pitch 2022</td>
+        <td><em>$4,500 Second Place</em></td>
+      </tr>
+      <tr>
+        <td>UMass Berthiaume Innovation Challenge 2023</td>
+        <td><em>$1,000 Top 5 Finalist</em></td>
+      </tr>
+      <tr>
+        <td>UMass Entrepreneurship ULaunch 2022</td>
+        <td><em>$1,500 First Place</em></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
 
-<h3 id="machine-learning--image-processing">Machine Learning &amp; Image Processing</h3>
+<h2 id="goals-and-motivation">Goals and Motivation</h2>
 
-<h3 id="embedded-systems">Embedded Systems</h3>
+<p>Collectible card games (CCG) or Trading card games (TCG) are types of card games that combine strategic deck-building elements with features of trading cards. One of the earliest and most significant in terms of market and volume is a CCG named <strong>Magic: The Gathering</strong>.</p>
+
+<p>Despite the enormous market, the industry faces several challenges:</p>
+
+<ul>
+  <li><strong>Sophisticated Counterfeit Cards:</strong>
+    <ul>
+      <li>Unnoticeable to the naked eye</li>
+    </ul>
+  </li>
+  <li><strong>Artificial Alterations on Defects:</strong>
+    <ul>
+      <li>Ink tweaks to mask artifacts</li>
+      <li>Rebacked Cards (Splicing 2 Cards together)</li>
+    </ul>
+  </li>
+  <li><strong>Poor Card Conditions (Artifacts):</strong>
+    <ul>
+      <li>Bends</li>
+      <li>Dents</li>
+      <li>Scratches</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Given these issues, it becomes crucial to have a card graded and authenticated by a human expert before buying or selling.However, the current pipeline faces challenges with a scarcity of human experts and a large number of customers. This results in an extremely time-consuming and expensive process.</p>
+
+<p>This is where <strong>CardVerse</strong> comes into play.</p>
+
+<p>The project has 4 primary objectives:</p>
+
+<ol>
+  <li><strong>Artifact &amp; Defects Detection:</strong>
+    <ul>
+      <li>We trained a <strong><em>machine learning model (YOLOv5)</em></strong> on our custom dataset, which consisted of 500 cards evaluated by human experts.</li>
+      <li>The model achieved a <strong><em>97% accuracy</em></strong> in detecting defects when tested on a separate set of cards.</li>
+    </ul>
+  </li>
+  <li><strong>Authenticity Detection:</strong>
+    <ul>
+      <li>To determine the authenticity of a given card, we examined two aspects:
+        <ol>
+          <li><strong><em>Weight Test</em></strong>
+            <ul>
+              <li>Since an original MTG card typically weighs between 1.7 and 1.8 grams, the system employs a weighing scale to identify counterfeit cards early in the pipeline.</li>
+            </ul>
+          </li>
+          <li><strong><em>Rosette Pattern / Green Dot Test</em></strong>
+            <ul>
+              <li>We designed an image processing pipeline (contouring / pattern matching) to conduct tests on the 40X zoom images of the card’s <a href="https://www.mtginformation.com/counterfeits#:~:text=%E2%80%8B-,The%20Rosette%20Test,printings%20of%20the%20same%20set.">rosette pattern</a> and the so-called <a href="https://www.detecting-the-fakes.com/checking-details/green-dot-check/">green dot</a>.</li>
+            </ul>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Grading Schema:</strong>
+    <ul>
+      <li>We developed a precise grading algorithm that objectively evaluates the condition and quality of the cards. The algorithm considers data points inferred from factors such as the <strong><em>type</em></strong>, <strong><em>number</em></strong>, and <strong><em>intensity</em></strong> of the defects mentioned above.</li>
+    </ul>
+  </li>
+  <li><strong>Sorting Mechanism:</strong>
+    <ul>
+      <li>The custom-built gantry system sorts the cards based on the output directed by the grading system.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="system-design--methods">System Design &amp; Methods</h2>
+
+<h3 id="1-software-engineering">1. Software Engineering</h3>
+<p>-</p>
+
+<h3 id="2-machine-learning--image-processing">2. Machine Learning &amp; Image Processing</h3>
+<p>-</p>
+
+<h3 id="3-embedded-systems">3. Embedded Systems</h3>
+<p>-</p>
+
+<h3 id="4-component-design--fabrication">4. Component Design &amp; Fabrication</h3>
+
+<h2 id="results">Results</h2>
+<h4 id="artifact-detection">Artifact Detection</h4>
+
+<h4 id="authenticity-detection">Authenticity Detection</h4>
+
+<h4 id="component-design">Component Design</h4>
+
+<hr />
+<p><a href="https://jatanjay.github.io/jatanjay/projects/">home</a></p>
 
 
   </div>
