@@ -86,23 +86,23 @@ The project has 4 primary objectives:
 ### 1. Software Engineering
 
    - The machine comprises three stepper motors, two cameras, an imaging chamber equipped with 16 LEDs, a weighing scale, and a vacuum pump.
-   - The system operates in conjunction with a Jetson Nano for executing inferences at the edge and a Raspberry Pi 4 for controlling the gantry, weighing scale, and    imaging chamber. 
+   - The system operates in conjunction with a Jetson Nano for executing inferences at the edge and a Raspberry Pi 4 for controlling the gantry, weighing scale, and imaging chamber. 
    - MQTT protocol was employed for communication between the Jetson Nano and Raspberry Pi 4.
 
 ### 2. Machine Learning & Image Processing
-   - **Artifacts & Defects Trainning**
+   - **Artifacts & Defects training**
    <div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
       <div style="display: flex; flex-direction: row; justify-content: center;">
          <img src="assets/train.png" alt="Train Image" style="max-width: 50%;">
       </div>
-      <figcaption style="font-size: smaller;">Example annotated image used in training</figcaption>
+      <figcaption style="font-size: smaller; text-align: center;">Example annotated image used in training</figcaption>
    </div>
    <div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
       <div style="display: flex; flex-direction: row; justify-content: center;">
          <img src="assets/defects_raw.jpg" alt="Defects Raw Image" style="max-width: 50%; margin-right: 10px;">
          <img src="assets/defects_processed.jpg" alt="Defects Processed Image" style="max-width: 50%;">
       </div>
-      <figcaption style="font-size: smaller;">Raw input image & Artifact detected output image</figcaption>
+      <figcaption style="font-size: smaller; text-align: center;">Raw input image & Artifact detected output image</figcaption>
    </div>
 
    - **Authenticity Detection**
@@ -111,23 +111,48 @@ The project has 4 primary objectives:
          <img src="assets/Fake_Raw.jpg" alt="Fake Raw Image" style="max-width: 50%; margin-right: 10px;">
          <img src="assets/Fake_Processed.jpg" alt="Fake Processed Image" style="max-width: 50%;">
       </div>
-      <figcaption style="font-size: smaller;">Rosette Pattern Analysis (Low Density when subjected to Pattern Matching) on counterfeit card</figcaption>
+      <figcaption style="font-size: smaller; text-align: center;">Rosette Pattern Analysis (Low Density when subjected to Pattern Matching) on counterfeit card</figcaption>
    </div>
    <div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
       <div style="display: flex; flex-direction: row; justify-content: center;">
          <img src="assets/real_raw.jpg" alt="Real Raw Image" style="max-width: 50%; margin-right: 10px;">
          <img src="assets/real_processed.jpg" alt="Real Processed Image" style="max-width: 50%;">
       </div>
-      <figcaption style="font-size: smaller;">Rosette Pattern Analysis (Higher Density when subjected to Pattern Matching) on authentic card</figcaption>
+      <figcaption style="font-size: smaller; text-align: center;">Rosette Pattern Analysis (Higher Density when subjected to Pattern Matching) on authentic card</figcaption>
    </div>
 
 
 ### 3. Embedded Systems
-   - **Artifacts & Defects Trainning**
+   - **Components**
+   <div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+         <img src="assets/pcb.jpg" alt="PCB" style="max-width: 50%;">
+      </div>
+      <figcaption style="font-size: smaller; text-align: center;">Custom RP2040 based PCB w/ stepper motor breakouts</figcaption>
+   </div>
 
 
 ### 4. Component Design & Fabrication
-   - **Artifacts & Defects Trainning**
+   - **Custom Components**
+   <div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+         <img src="assets/imagingchamber.png" alt="Custom Imaging Chamber" style="max-width: 50%;">
+      </div>
+      <figcaption style="font-size: smaller; text-align: center;">Imaging Chamber w/ 16 LEDs</figcaption>
+   </div>
+   <div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+         <img src="assets/scale_top.jpg" alt="Scale Top" style="max-width: 50%; margin-right: 10px;">
+         <img src="assets/weighing_scale.jpg" alt="Scale Side" style="max-width: 50%;">
+      </div>
+      <figcaption style="font-size: smaller; text-align: center;">Enclosure for the weighing scale, with Raspberry Pi underneath, together fitting inside the imaging chamber</figcaption>
+   </div>
+   <div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+         <img src="assets/z_mount.jpg" alt="Z Axis" style="max-width: 50%;">
+      </div>
+      <figcaption style="font-size: smaller; text-align: center;">Z-axis Mount Combining a 40x Zoom Camera, 8MP Camera, and Suction Apparatus</figcaption>
+   </div>
 
 ***
 [home](https://jatanjay.github.io/projects/)
