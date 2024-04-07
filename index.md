@@ -151,7 +151,7 @@ The project has 4 primary objectives:
       <div style="display: flex; flex-direction: row; justify-content: center;">
          <img src="assets/z_mount.jpg" alt="Z Axis" style="max-width: 50%;">
       </div>
-      <figcaption style="font-size: smaller; text-align: center;">Z-axis Mount Combining a 40x Zoom Camera, 8MP Camera, and Suction Apparatus</figcaption>
+      <figcaption style="font-size: smaller; text-align: center;">Z-axis Mount Combining a 40x Zoom Camera, 12MP Camera, and Suction Apparatus</figcaption>
    </div>
 
 ***
