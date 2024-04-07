@@ -72,7 +72,7 @@ The project has 4 primary objectives:
         - Since an original MTG card typically weighs between 1.7 and 1.8 grams, the system employs a weighing scale to identify counterfeit cards early in the pipeline.
      2. ***Rosette Pattern / Green Dot Test***
         - Designed an image processing pipeline (pattern matching & contouring) to conduct tests on the 40X zoom images of the card's [rosette pattern](https://www.mtginformation.com/counterfeits#:~:text=%E2%80%8B-,The%20Rosette%20Test,printings%20of%20the%20same%20set.) and the so-called [green dot](https://www.detecting-the-fakes.com/checking-details/green-dot-check/).
-     3. Achieved a ***97% accuracy*** in authenticating a MTG card.
+     3. Achieved a ***99% accuracy*** in authenticating a MTG card.
 
 3. **Grading Schema:**
    - Developed a precise grading algorithm that objectively evaluates the condition and quality of the cards. The algorithm considers data points inferred from factors such as the ***type***, ***number***, and ***intensity*** of the defects mentioned above.
