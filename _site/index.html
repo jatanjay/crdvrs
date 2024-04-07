@@ -15,9 +15,18 @@
   <img src="assets/logo.jpg" alt="Banner" />
 </p>
 
+<nav style="text-align: center;">
+    <ul>
+        <a href="#whats-cardverse">What's CardVerse?</a> | 
+        <a href="#impact">Impact</a> |
+        <a href="#goals-and-motivation">Goals &amp; Motivation</a> |
+        <a href="#system-design-and-results">System Design &amp; Results</a>
+    </ul>
+</nav>
+
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
     <video controls="" autoplay="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-        <source src="assets/card_verse_work..mp4" type="video/mp4" />
+        <source src="assets/card_verse_work.mp4" type="video/mp4" />
     </video>
 </div>
 <figcaption style="text-align: center;">Day 280 of 305</figcaption>
@@ -28,7 +37,7 @@
 <p>I, along with my team, developed this project as my ECE Senior Design Project.</p>
 
 <h2 id="impact">Impact</h2>
-<p>We won a total of $7000 prize money at UMass’s ‘22-‘23 Berthiaume Innovation Challenge</p>
+<p>Won a total of $7000 prize money at UMass’s ‘22-‘23 Berthiaume Innovation Challenge</p>
 
 <blockquote>
   <table>
@@ -76,7 +85,7 @@
   </li>
 </ul>
 
-<p>Given these issues, it becomes crucial to have a card graded and authenticated by a human expert before buying or selling.However, the current pipeline faces challenges with a scarcity of human experts and a large number of customers. This results in an extremely time-consuming and expensive process.</p>
+<p>Given these issues, it becomes crucial to have a card graded and authenticated by a human expert before buying or selling. However, the current pipeline faces challenges with a scarcity of human experts and a large number of customers. This results in an extremely time-consuming and expensive process.</p>
 
 <p>This is where <strong>CardVerse</strong> comes into play.</p>
 
@@ -85,7 +94,7 @@
 <ol>
   <li><strong>Artifact &amp; Defects Detection:</strong>
     <ul>
-      <li>We trained a <strong><em>machine learning model (YOLOv5)</em></strong> on our custom dataset, which consisted of 500 cards evaluated by human experts.</li>
+      <li>Trained a <strong><em>machine learning model (YOLOv8)</em></strong> on our custom dataset, which consisted of 500 cards evaluated by human experts.</li>
       <li>The model achieved a <strong><em>97% accuracy</em></strong> in detecting defects when tested on a separate set of cards.</li>
     </ul>
   </li>
@@ -100,16 +109,17 @@
           </li>
           <li><strong><em>Rosette Pattern / Green Dot Test</em></strong>
             <ul>
-              <li>We designed an image processing pipeline (contouring / pattern matching) to conduct tests on the 40X zoom images of the card’s <a href="https://www.mtginformation.com/counterfeits#:~:text=%E2%80%8B-,The%20Rosette%20Test,printings%20of%20the%20same%20set.">rosette pattern</a> and the so-called <a href="https://www.detecting-the-fakes.com/checking-details/green-dot-check/">green dot</a>.</li>
+              <li>Designed an image processing pipeline (pattern matching &amp; contouring) to conduct tests on the 40X zoom images of the card’s <a href="https://www.mtginformation.com/counterfeits#:~:text=%E2%80%8B-,The%20Rosette%20Test,printings%20of%20the%20same%20set.">rosette pattern</a> and the so-called <a href="https://www.detecting-the-fakes.com/checking-details/green-dot-check/">green dot</a>.</li>
             </ul>
           </li>
+          <li>Achieved a <strong><em>97% accuracy</em></strong> in authenticating a MTG card.</li>
         </ol>
       </li>
     </ul>
   </li>
   <li><strong>Grading Schema:</strong>
     <ul>
-      <li>We developed a precise grading algorithm that objectively evaluates the condition and quality of the cards. The algorithm considers data points inferred from factors such as the <strong><em>type</em></strong>, <strong><em>number</em></strong>, and <strong><em>intensity</em></strong> of the defects mentioned above.</li>
+      <li>Developed a precise grading algorithm that objectively evaluates the condition and quality of the cards. The algorithm considers data points inferred from factors such as the <strong><em>type</em></strong>, <strong><em>number</em></strong>, and <strong><em>intensity</em></strong> of the defects mentioned above.</li>
     </ul>
   </li>
   <li><strong>Sorting Mechanism:</strong>
@@ -119,28 +129,64 @@
   </li>
 </ol>
 
-<h2 id="system-design--methods">System Design &amp; Methods</h2>
+<h2 id="system-design-and-results">System Design and Results</h2>
 
 <h3 id="1-software-engineering">1. Software Engineering</h3>
-<p>-</p>
+
+<ul>
+  <li>The machine comprises three stepper motors, two cameras, an imaging chamber equipped with 16 LEDs, a weighing scale, and a vacuum pump.</li>
+  <li>The system operates in conjunction with a Jetson Nano for executing inferences at the edge and a Raspberry Pi 4 for controlling the gantry, weighing scale, and    imaging chamber.</li>
+  <li>MQTT protocol was employed for communication between the Jetson Nano and Raspberry Pi 4.</li>
+</ul>
 
 <h3 id="2-machine-learning--image-processing">2. Machine Learning &amp; Image Processing</h3>
-<p>-</p>
+<ul>
+  <li><strong>Artifacts &amp; Defects Trainning</strong></li>
+</ul>
+<div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+         <img src="assets/train.png" alt="Train Image" style="max-width: 50%;" />
+      </div>
+      <figcaption style="font-size: smaller;">Example annotated image used in training</figcaption>
+   </div>
+<div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+         <img src="assets/defects_raw.jpg" alt="Defects Raw Image" style="max-width: 50%; margin-right: 10px;" />
+         <img src="assets/defects_processed.jpg" alt="Defects Processed Image" style="max-width: 50%;" />
+      </div>
+      <figcaption style="font-size: smaller;">Raw input image &amp; Artifact detected output image</figcaption>
+   </div>
+
+<ul>
+  <li><strong>Authenticity Detection</strong></li>
+</ul>
+<div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+         <img src="assets/Fake_Raw.jpg" alt="Fake Raw Image" style="max-width: 50%; margin-right: 10px;" />
+         <img src="assets/Fake_Processed.jpg" alt="Fake Processed Image" style="max-width: 50%;" />
+      </div>
+      <figcaption style="font-size: smaller;">Rosette Pattern Analysis (Low Density when subjected to Pattern Matching) on counterfeit card</figcaption>
+   </div>
+<div style="display: flex; flex-direction: column; align-items: center; margin: 10px 0;">
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+         <img src="assets/real_raw.jpg" alt="Real Raw Image" style="max-width: 50%; margin-right: 10px;" />
+         <img src="assets/real_processed.jpg" alt="Real Processed Image" style="max-width: 50%;" />
+      </div>
+      <figcaption style="font-size: smaller;">Rosette Pattern Analysis (Higher Density when subjected to Pattern Matching) on authentic card</figcaption>
+   </div>
 
 <h3 id="3-embedded-systems">3. Embedded Systems</h3>
-<p>-</p>
+<ul>
+  <li><strong>Artifacts &amp; Defects Trainning</strong></li>
+</ul>
 
 <h3 id="4-component-design--fabrication">4. Component Design &amp; Fabrication</h3>
-
-<h2 id="results">Results</h2>
-<h4 id="artifact-detection">Artifact Detection</h4>
-
-<h4 id="authenticity-detection">Authenticity Detection</h4>
-
-<h4 id="component-design">Component Design</h4>
+<ul>
+  <li><strong>Artifacts &amp; Defects Trainning</strong></li>
+</ul>
 
 <hr />
-<p><a href="https://jatanjay.github.io/jatanjay/projects/">home</a></p>
+<p><a href="https://jatanjay.github.io/projects/">home</a></p>
 
 
   </div>
